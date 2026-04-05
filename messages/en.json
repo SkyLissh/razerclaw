@@ -1,0 +1,15 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "hello_world": "Hello, {name} from en!",
+  "devices": "Devices",
+  "minimize": "Minimize",
+  "close": "Close",
+  "maximize": "Maximize",
+  "poll_rate": "Poll Rate",
+  "update_poll_rate": "Update Poll Rate",
+  "copy_to_clipboard": "Copy to Clipboard",
+  "loading": "Loading...",
+  "no_devices": "No devices found.",
+  "error": "An error occurred: {error}",
+  "battery_charge": "Battery: {charge}%"
+}
