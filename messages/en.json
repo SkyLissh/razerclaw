@@ -8,8 +8,12 @@
   "poll_rate": "Poll Rate",
   "update_poll_rate": "Update Poll Rate",
   "copy_to_clipboard": "Copy to Clipboard",
+  "copied": "Copied!",
+  "copy_failed": "Failed to copy.",
   "loading": "Loading...",
   "no_devices": "No devices found.",
   "error": "An error occurred: {error}",
-  "battery_charge": "Battery: {charge}%"
+  "battery_charge": "Battery: {charge}%",
+  "dpi": "DPI",
+  "brightness": "Brightness"
 }

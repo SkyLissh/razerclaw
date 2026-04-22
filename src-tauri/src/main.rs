@@ -15,7 +15,8 @@ fn nvidia_wayland_workaround() {
         let is_wayland = std::env::var("WAYLAND_DISPLAY").is_ok();
 
         if is_nvidia && is_wayland {
-            std::env::set_var("__NV_DISABLE_EXPLICIT_SYNC", "1");
+            // std::env::set_var("__NV_DISABLE_EXPLICIT_SYNC", "1");
+            std::env::set_var("WEBKIT_DISABLE_COMPOSITING_MODE", "1");
         }
     }
 }

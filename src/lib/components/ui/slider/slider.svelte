@@ -10,7 +10,7 @@
     class: className,
     ...restProps
   }: WithoutChildrenOrChild<SliderPrimitive.RootProps> & {
-    tickLabels: string[];
+    tickLabels?: string[];
   } = $props();
 </script>
 
@@ -24,7 +24,7 @@ get along, so we shut typescript up by casting `value` to `never`.
   data-slot="slider"
   {orientation}
   class={cn(
-    "relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col",
+    "relative flex w-full touch-none items-center select-none hover:cursor-grab active:cursor-grabbing data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col",
     className
   )}
   {...restProps}
@@ -52,13 +52,15 @@ get along, so we shut typescript up by casting `value` to `never`.
       />
     {/each}
 
-    {#each tickItems as tick (tick)}
-      <SliderPrimitive.Tick index={tick.index} class="size-1 rounded-full bg-background"
-      ></SliderPrimitive.Tick>
+    {#if tickLabels.length > 0}
+      {#each tickItems as tick (tick)}
+        <SliderPrimitive.Tick index={tick.index} class="size-1 rounded-full bg-background"
+        ></SliderPrimitive.Tick>
 
-      <SliderPrimitive.TickLabel index={tick.index} position="bottom" class="pt-4 text-xs">
-        {tickLabels.at(tick.index) ?? tick.value}
-      </SliderPrimitive.TickLabel>
-    {/each}
+        <SliderPrimitive.TickLabel index={tick.index} position="bottom" class="pt-4 text-xs">
+          {tickLabels?.at(tick.index) ?? tick.value}
+        </SliderPrimitive.TickLabel>
+      {/each}
+    {/if}
   {/snippet}
 </SliderPrimitive.Root>
