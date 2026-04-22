@@ -8,8 +8,12 @@
   "poll_rate": "Poll Rate",
   "update_poll_rate": "Actualizar Poll Rate",
   "copy_to_clipboard": "Copiar al portapapeles",
+  "copied": "¡Copiado!",
+  "copy_failed": "Error al copiar.",
   "loading": "Cargando...",
   "no_devices": "No se encontraron dispositivos.",
   "error": "Ocurrió un error: {error}",
-  "battery_charge": "Batería: {charge}%"
+  "battery_charge": "Batería: {charge}%",
+  "dpi": "DPI",
+  "brightness": "Brillo"
 }

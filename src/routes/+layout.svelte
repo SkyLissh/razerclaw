@@ -5,23 +5,20 @@
   import { SvelteQueryDevtools } from "@tanstack/svelte-query-devtools";
 
   import { Titlebar } from "$lib/components/blocks/titlebar";
-  import { setServicesContext } from "$lib/services";
-  import { RazerService } from "$lib/services/razer";
+  import * as Tooltip from "$lib/components/ui/tooltip";
 
   const { children } = $props();
 
   const queryClient = new QueryClient();
-
-  setServicesContext({
-    razer: new RazerService(),
-  });
 </script>
 
 <QueryClientProvider client={queryClient}>
   <div class="flex h-full flex-col">
     <Titlebar />
 
-    {@render children()}
+    <Tooltip.Provider>
+      {@render children()}
+    </Tooltip.Provider>
   </div>
   <SvelteQueryDevtools />
 </QueryClientProvider>

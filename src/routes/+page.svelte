@@ -2,9 +2,9 @@
   import { goto } from "$app/navigation";
   import { resolve } from "$app/paths";
 
-  import { createDevices } from "$lib/composables/devices";
+  import { createDevicesList } from "$lib/features/misc/stores";
 
-  const { devices } = createDevices();
+  const { devices } = createDevicesList();
 
   $effect(() => {
     if (devices.data) {

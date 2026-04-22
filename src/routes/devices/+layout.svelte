@@ -1,16 +1,16 @@
 <script lang="ts">
+  import { page } from "$app/state";
   import type { LayoutProps } from "./$types";
 
   import { LineSquiggle } from "@lucide/svelte";
 
   import { Sidebar } from "$lib/components/blocks/sidebar";
-
-  import { createDevices } from "$lib/composables/devices";
+  import { createDevicesList } from "$lib/features/misc/stores";
 
   let { children }: LayoutProps = $props();
 
-  const { devices } = createDevices();
-  let selected = $derived(devices?.data?.at(0) ?? null);
+  const { devices } = createDevicesList();
+  const selected = $derived(page.params.serial ?? null);
 </script>
 
 {#if devices.isPending}
@@ -27,15 +27,12 @@
     <span class="text-sm text-muted">No devices found.</span>
   </div>
 {:else}
-  <div class="flex h-full gap-12 overflow-auto">
+  <div class="flex h-full overflow-auto">
     <Sidebar
-      selected={selected?.serial ?? null}
-      devices={devices.data.map((d) => ({
-        name: d.name,
-        serial: d.serial,
-        type: d.type,
-      }))}
-      onSelect={(serial) => (selected = devices.data.find((d) => d.serial === serial) ?? null)}
+      {selected}
+      devices={devices.data}
+      refreshing={devices.isFetching}
+      onRefresh={() => devices.refetch()}
     />
     {@render children()}
   </div>
