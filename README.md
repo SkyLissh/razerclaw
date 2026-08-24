@@ -53,7 +53,3 @@ Requires the Rust toolchain, OpenRazer/OpenRGB drivers, and a Razer device.
 - Tauri 2 desktop apps with a native shell
 - Structured feature architecture spanning a Rust backend + Svelte frontend
 - Building real Linux desktop software (runs on Fedora + Wayland)
-
----
-
-*Built by [Alisson "SkyLissh" Hernandez] — Rust, Tauri, and native Linux desktop software. This is a personal portfolio project.*
